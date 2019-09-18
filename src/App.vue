@@ -1,28 +1,17 @@
 <template>
   <div id="app">
-    <Header/>
-    <Planets v-bind:planetData="planetData"/>
+    <Header />
+    <router-view/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Planets from './components/Planets'
-import fetchPlanetData from './nasaFetch'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Header,
-    Planets
-  }, 
-  data() {
-    return {
-      planetData:[]
-    }
-  },
-  async created() {
-    this.planetData = await fetchPlanetData()
   }
 }
 </script>
