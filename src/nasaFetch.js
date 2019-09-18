@@ -1,7 +1,6 @@
 require('dotenv').config();
 const API_KEY = process.env.VUE_APP_API_KEY
 import uuid from 'uuid'
-console.log(process.env)
 export const fetchPlanetData = async () => {
   const date = new Date()
   let firstOfMonth = `${date.getFullYear()}-${date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}-01`
