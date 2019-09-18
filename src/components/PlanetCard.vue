@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style scoped>
-p {
+h3 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
