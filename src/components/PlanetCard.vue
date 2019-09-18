@@ -1,6 +1,6 @@
 <template>
   <div class="planet-card">
-    <p>{{planet.title}}</p>
+    <router-link v-bind:to="'/APOD/'+ planet.date"><h3>{{planet.title}}</h3></router-link>
       <img :alt="planet.explanation" v-if="planet.media_type === 'image'" class="planet-image" :src="planet.url"/>
       <iframe v-else type="text/html" width="100%" height="240px" :src="planet.url"></iframe>
       <p>{{planet.date}}</p>
