@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <Form />
+    <!-- <Form /> -->
     <Planets v-if="!this.isLoading" v-bind:planetData="planetData"/>
     <div id="loading" v-else>
     <h3>Loading please wait...</h3>
@@ -12,13 +12,13 @@
 <script>
 import Planets from './Planets'
 import { fetchPlanetData } from '../nasaFetch'
-import Form from './Form'
+// import Form from './Form'
 
 export default {
   name: 'Home',
   components: {
     Planets,
-    Form
+    // Form
   }, 
   data() {
     return {

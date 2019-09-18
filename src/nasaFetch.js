@@ -7,7 +7,6 @@ export const fetchPlanetData = async () => {
 
   let currentDate = `${date.getFullYear()}-${date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}-${date.getDate()}`
   const fullMonthUrl = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${firstOfMonth}&end_date=${currentDate}`;
-  // const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
   try {
     const response = await fetch(fullMonthUrl)
     const results = await response.json()
@@ -20,12 +19,11 @@ export const fetchPlanetData = async () => {
 }
 
 export const planetDataOnDate = async (date) => {
-  const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}start_date=${date}`
+  const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`
   try {
     const response = await fetch(dateUrl)
     const results = await response.json()
-    // console.log(results)
-    return results
+    return {...results, id:uuid()}
   } catch (error) {
     throw Error(error.message)
   }

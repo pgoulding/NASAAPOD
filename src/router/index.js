@@ -13,7 +13,7 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/Detail',
+      path: '/APOD/:id',
       name: 'CardDetail',
       component: CardDetail,
     }
