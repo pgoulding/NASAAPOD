@@ -7,10 +7,9 @@
       v-model="date"
       name="date"
       />
-    <input
-      type="submit"
-      value="Submit"
-    />
+      <router-link v-bind:to="'/APOD/'+ this.date">
+        Submit
+      </router-link>
   </form>
 </template>
 
@@ -20,11 +19,6 @@ export default {
   data() {
     return {
       date:''
-    }
-  }, 
-  methods:{
-    rearrangeDate() {
-      console.log(this.date)
     }
   }
 }
@@ -43,10 +37,13 @@ export default {
     margin-right:5px;
   }
 
-  input[type="submit"] {
+  a {
     outline:none;
     border: none;
-    width:50px;
+    width:60px;
+    color:white;
+    text-decoration: none;
+    padding-left:5px;
     background-color:slategrey;
     margin-left:-2px;
     border-radius: 0 2px 2px 0;
