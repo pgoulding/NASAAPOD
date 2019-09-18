@@ -21,6 +21,11 @@ export default {
     return {
       date:''
     }
+  }, 
+  methods:{
+    rearrangeDate() {
+      console.log(this.date)
+    }
   }
 }
 </script>
@@ -33,7 +38,7 @@ export default {
     padding:10px 40px;
     background: #f4f4f4;
   }
-  
+
   p{
     margin-right:5px;
   }
