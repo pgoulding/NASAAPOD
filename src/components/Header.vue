@@ -1,6 +1,8 @@
 <template>
   <header >
-    <h1>Nasa Pic of the Day</h1>
+    <router-link to="/">
+      <h1>NASA Pic of the Day</h1>
+    </router-link>
   </header>
 </template>
 
