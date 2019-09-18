@@ -10,6 +10,7 @@
   </div>
   <div v-else>
     <h2>{{this.errorMessage}}</h2>
+    <img src="../assets/404.gif" alt="This is not the page you're looking for"/>
   </div>
   </div>
 </template>
