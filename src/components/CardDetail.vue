@@ -1,11 +1,17 @@
 <template>
   <div class="detail-card">
     <router-link to="/">←Back</router-link>
-    <h2>{{card.title}}</h2>
-    <p>{{card.date}}</p>
-    <img :alt="card.explanation" v-if="card.media_type === 'image'" class="card-image" :src="card.url"/>
-    <iframe v-else type="text/html" width="100%" height="240px" :src="card.url"></iframe>
-    <p class="photo-description">{{card.explanation}}</p>
+    <div v-if="!this.hasErrored">
+      <h2>{{card.title}}</h2>
+      <p>{{card.date}}</p>
+      <img :alt="card.explanation" v-if="card.media_type === 'image'" class="card-image" :src="card.url"/>
+      <iframe v-else type="text/html" width="100%" height="240px" :src="card.url"></iframe>
+      <p class="photo-description">{{card.explanation}}</p>
+  </div>
+  <div v-else>
+    <h2>{{this.errorMessage}}</h2>
+    <img src="../assets/404.gif" alt="This is not the page you're looking for"/>
+  </div>
   </div>
 </template>
 
@@ -17,11 +23,21 @@ export default {
   data () {
     return  {
       date:this.$route.params,
-      card:{}
+      card:{},
+      hasErrored: false,
+      errorMessage: ''
     }
   },
   async created () {
-    this.card = await planetDataOnDate(this.date.id)
+    this.hasErrored = false
+    const planetData = await planetDataOnDate(this.date.id)
+    if(!planetData.error) {
+      console.log(planetData)
+      this.card = planetData
+    } else {
+      this.hasErrored = true
+      this.errorMessage = planetData.msg
+    }
   }
 }
 </script>
